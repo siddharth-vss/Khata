@@ -149,6 +149,15 @@ img {
   cursor: pointer;
   margin-bottom: 2rem;
 }
+.login__button :disabled {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
 .login__register {
   text-align: center;
 }
@@ -186,4 +195,31 @@ img {
   .login__title {
     font-size: 2rem;
   }
+}
+
+
+.input-field {
+  display: inline-flex;
+  flex-direction: row;
+  column-gap: 2%;
+  margin-bottom: 15%;
+}
+.input-field input {
+  height: 45px;
+  width: 15%;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1.125rem;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+.input-field input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.input-field input::-webkit-inner-spin-button,
+.input-field input::-webkit-outer-spin-button {
+  display: none;
+}
+input[type="number"]:disabled{
+  color :hsl(0, 0%, 100%);
 }
