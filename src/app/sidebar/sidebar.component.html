@@ -60,11 +60,18 @@
     </nav>
     <nav class="navbar flex">
       <i class="bx bx-menu" (click)="toggleSidebar()" id="sidebar-open"></i>
-      <input type="text" placeholder="Search..." class="search_box" />
+      <!-- <input type="text" placeholder="Search..." class="search_box" /> -->
+      Khatabook.
       <span class="nav_image">
         <img src="../../assets/img.jpg" alt="logo_img" />
       </span>
     </nav>
+
+    <div  class="container text-white body grid justify-items-center">
+      <div class="h-[200px] w-[200px] bg-zinc-800 "></div>
+      <router-outlet></router-outlet>
+
+    </div>
 
   </div>
 </div>

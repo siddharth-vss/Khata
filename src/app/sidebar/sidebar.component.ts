@@ -1,12 +1,12 @@
 import { NgClass, NgFor } from '@angular/common';
 import { Component, OnInit, inject  } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [NgClass, NgFor, RouterModule],
+  imports: [RouterOutlet,NgClass, NgFor, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
@@ -20,12 +20,29 @@ export class SidebarComponent implements OnInit {
     {
       section: 'Dashboard',
       items: [
-        { component: 'Overview', icon: 'bx bx-home-alt', path: 'abc' },
-        { component: 'All Projects', icon: 'bx bx-grid-alt', path: '' },
+        { component: 'Overview', icon: 'bx bx-home-alt', path: '/dashboard' },
       ],
     },
-    { section: 'Dashboard' },
-    { section: 'Dashboard' },
+    {
+      section: 'Payments' ,
+      items:[
+        {component : 'Show All Payments', icon :'bx bx-wallet',path : '/payments'},
+        {component : 'Send Money', icon :'bx bxl-paypal',path : '/payments/create'},
+      ],
+    },
+    {
+      section: 'Entries'  ,
+      items:[
+        {component : 'Read All', icon :'bx bxs-book-bookmark',path : '/entries'},
+        {component : 'Create Hissab', icon :'bx bx-pen',path : '/entries/create'},
+      ],
+    },
+    {
+      section: 'Files'  ,
+      items:[
+        {component : 'Read All', icon :'bx bxs-file-pdf',path : '/files'},
+      ],
+    },
   ];
 
   constructor() {

@@ -13,6 +13,13 @@ body {
   min-height: 100vh;
   background: #eef5fe;
 }
+
+
+.body{
+  margin-top: 80px;
+}
+
+
 /* Pre css */
 .flex {
   display: flex;
