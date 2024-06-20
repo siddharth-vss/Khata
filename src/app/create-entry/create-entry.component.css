@@ -27,7 +27,7 @@
 .container ::-webkit-scrollbar{
   display: none;
 }
-.container>#txt , textarea {
+.container>#txt , textarea ,button , input{
   height: 500px !important;
   width : 100% !important;
   background-color: transparent !important;
@@ -39,23 +39,20 @@
 
 }
 
-
-.input{
-  padding-left: 10% !important;
-  width : 100% !important;
-  background-color: transparent !important;
-  background-image: linear-gradient(45deg,rgba(12, 100, 233, 0.634),rgba(88, 239, 236, 0.302)) !important;
-  backdrop-filter: blur(5px);
-  border: 1px solid white !important;
-  border-radius: 15px !important;
-  z-index: 1;
+.btn{
+  max-width: 200px !important;
+  width:  200px !important;
+  z-index: 4;
 }
+
+
+
 input[ type = "text"]::placeholder{
   color : black;
-  padding-top: 50% !important;
+  /* padding-top: 50% !important; */
   align-items: center;
   text-align: center;
-  transform: translateX(-10%);
+  transform: translateX(-15%);
   font-size: 35px;
 
 }
