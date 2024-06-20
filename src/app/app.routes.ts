@@ -7,13 +7,16 @@ import { SendMoneyComponent } from './send-money/send-money.component';
 import { EntriesComponent } from './entries/entries.component';
 import { CreateEntryComponent } from './create-entry/create-entry.component';
 import { FilesComponent } from './files/files.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 export const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: '',
+    component : SidebarComponent ,
     children: [
-      { path: '', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
+
       { path: 'dashboard', component: DashboardComponent },
       {
         path: 'payments',
@@ -30,6 +33,8 @@ export const routes: Routes = [
         ],
       },
       { path: 'files', component: FilesComponent },
+      {path : '' , redirectTo : '/login' , pathMatch: 'full' }
     ],
   },
+  {path : '**' , redirectTo  : '/login'}
 ];

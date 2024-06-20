@@ -55,7 +55,7 @@ export class SidebarComponent implements OnInit {
     this.user = localStorage.getItem('user');
     if (this.user !== null) {
       if (this.user === '') {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/login');
       }
     }
   }

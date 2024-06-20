@@ -1,1 +1,78 @@
-<p>register works!</p>
+
+<div class="login">
+  <!-- <img src="../../assets/image.png" alt="login image" class="login__img"> -->
+
+  <form *ngIf="!mailStatus; else elseBlock" #loginform="ngForm"  class="login__form">
+     <h1 class="login__title">Register</h1>
+     <div >
+      <div   class="login__content">
+        <div class="login__box">
+           <i class="bx bx-user login__icon"></i>
+
+           <div class="login__box-input">
+              <input type="email" name="email" ngModel  required class="login__input" id="login-email" placeholder=" "  autocomplete="off">
+              <label for="login-email"  class="login__label">Email</label>
+           </div>
+        </div>
+
+        <!-- <div class="login__box">
+           <i class="bx bx-lock login__icon"></i>
+
+           <div class="login__box-input">
+              <input type={{password}} name="password" ngModel required class="login__input" id="login-pass" placeholder=" "  autocomplete="off">
+              <label for="login-pass" class="login__label">Password</label>
+              <i class="bx  login__eye" (click)="change()" [ngClass]="[show ? 'bx-show-alt' : 'bx-hide']" id="login-eye"></i>
+           </div>
+        </div> -->
+     </div>
+
+     <div class="login__check">
+        <div class="login__check-group">
+           <input type="checkbox" class="login__check-input" id="login-check">
+           <label for="login-check" class="login__check-label">Remember me</label>
+        </div>
+
+        <a href="#" class="login__forgot">Forgot Password?</a>
+     </div>
+    </div>
+
+    <button (click)="hello(loginform.value)" type="submit"  class="login__button">Send Otp</button>
+
+     <p class="login__register">
+        have an account? <a href="#">Login</a>
+     </p>
+  </form>
+</div>
+
+
+
+<ng-template #elseBlock>
+  <form  class="login__form">
+    <h1 class="login__title">Register</h1>
+    <div >
+      <div class="input-field">
+        <input #txt1 maxlength="1" ngModel name="a"  (keyup)="move($event,'',txt1,txt2)" type="number" />
+        <input #txt2 maxlength="1" ngModel name="b"  (keyup)="move($event,txt1,txt2,txt3)" type="number" disabled />
+        <input #txt3 maxlength="1" ngModel name="c"  (keyup)="move($event,txt2,txt3,txt4)" type="number" disabled />
+        <input #txt4 maxlength="1" ngModel name="d"  (keyup)="move($event,txt3,txt4,txt5)" type="number" disabled />
+        <input #txt5 maxlength="1" ngModel name="e"  (keyup)="move($event,txt4,txt5,txt6)" type="number" disabled />
+        <input #txt6 maxlength="1" ngModel name="f"  (keyup)="move($event,txt5,txt6,'')" type="number" disabled />
+      </div>
+
+    </div>
+
+    <div class="login__check">
+              <a (click)="hello()" class="login__forgot">Resend O.T.P. ?</a>
+    </div>
+
+    <button  (click)="compare([txt1.value,txt2.value,txt3.value,txt4.value,txt5.value,txt6.value])"  class="login__button">Login</button>
+
+    <p class="login__register">
+       Don't have an account? <a href="#">Register</a>
+    </p>
+ </form>
+
+</ng-template>
+
+
+              <!-- <i class="bx bx-show-alt login__eye" id="login-eye"></i> -->

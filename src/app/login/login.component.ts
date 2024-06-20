@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit{
     this.user = localStorage.getItem('user');
     if (this.user !== null) {
       if (this.user != '') {
-        this.router.navigateByUrl('/sidebar');
+        this.router.navigateByUrl('/dashboard');
       }
     }else{
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/login');
     }
   }
 
@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit{
 
     if (this.redirect) {
       localStorage.setItem("user",this.email);
-      this.router.navigateByUrl('/sidebar');
+      this.router.navigateByUrl('/dashboard');
     }
   }
 }

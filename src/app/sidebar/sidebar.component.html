@@ -6,7 +6,7 @@
   </div>
   <div class=" fixed z-4 w-full h-screen  ">
     <nav #e (mouseenter)="showSidebar(e)" (mouseleave)="hideSidebar(e)"
-      [ngClass]="[show ? 'locked' : 'hoverable',close ? 'close' : '']" class="sidebar">
+      [ngClass]="[show ? 'locked' : 'hoverable',close ? 'close' : '']" class=" z-4 sidebar">
       <div class="logo_items flex">
         <span class="nav_image">
           <svg width="58" height="64" viewBox="0 0 58 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +67,7 @@
       </span>
     </nav>
 
-    <div  class="container text-white body ">
+    <div  class="container -z-1 text-white body ">
       <router-outlet></router-outlet>
     </div>
 
