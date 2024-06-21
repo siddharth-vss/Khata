@@ -1,0 +1,30 @@
+<div *ngIf="data; else jamaila " class="  container">
+  <div id="txt" class=" h-[500px] container ">
+
+    <div class=" flex items-center justify-around ">
+      <h1></h1>
+      <h1 class="text-[30px]">{{'title'}}</h1>
+      <h1 class="text-[10px]">{{'date'}}</h1>
+    </div>
+
+    <div class=" flex items-center justify-around ">
+      <h1 class="text-[30px] my-[20px] ">{{'note'}}</h1>
+    </div>
+
+    <div class=" flex items-center justify-around ">
+      <h1 class="text-[30px] ">{{'amount'}}</h1>
+    </div>
+
+    <div class=" flex items-center justify-around ">
+      <h1 class="text-[30px]">{{'sender'}}</h1>
+    </div>
+
+    <div class=" flex items-center justify-around ">
+      <h1 class="text-[30px]">{{'receiver'}}</h1>
+    </div>
+  </div>
+</div>
+
+<ng-template #jamaila>
+  <h1 class="text-3xl text-center">No Data Found</h1>
+</ng-template>

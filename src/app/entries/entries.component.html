@@ -1,7 +1,11 @@
-<div class=" grid grid-cols-2 gap-4 justify-items-center container">
-  <div class="bar flex items-center justify-around " id="txt1">
-      <h1>Name</h1>
-      <h1>Ammount</h1>
-      <i class='bx bxs-right-arrow-circle'></i>
+<div *ngIf="data; else jamaila " class=" grid grid-cols-2 gap-4 justify-items-center container">
+  <div class="bar flex items-center justify-around " id="txt1" *ngFor="let user of data">
+    <h1 >{{user.title}}</h1>
+    <h1>{{reverse(user.createdAt.slice(0,10))}}</h1>
+    <a routerLink="/entries/{{user._id}}"><i class='bx bxs-right-arrow-circle'></i></a>
   </div>
 </div>
+
+<ng-template #jamaila >
+  <h1 class="text-3xl text-center">No Data Found</h1>
+</ng-template>

@@ -1,7 +1,11 @@
-<div class=" grid grid-cols-2 gap-4 justify-items-center container">
-  <div class="bar flex items-center justify-around " id="txt1">
-      <h1>Name</h1>
-      <h1>Ammount</h1>
-      <i class='bx bxs-right-arrow-circle'></i>
+<div *ngIf="data; else jamaila " class=" grid grid-cols-2 gap-4 justify-items-center container">
+  <div class="bar flex items-center justify-around " id="txt1" *ngFor="let user of data">
+    <h1 >{{hello(user.users)}}</h1>
+    <h1 class="font-bold" [ngClass]="[('666822e90f999b57b007cd4d' == user.sender) ? 'text-[red]' : 'text-[#2fec2f]' ]" >{{user?.amount}}</h1>
+    <a routerLink="/payments/{{user._id}}"><i class='bx bxs-right-arrow-circle'></i></a>
   </div>
 </div>
+
+<ng-template #jamaila >
+  <h1 class="text-3xl text-center">No Data Found</h1>
+</ng-template>

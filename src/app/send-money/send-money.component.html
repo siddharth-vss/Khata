@@ -1,1 +1,11 @@
-<p>send-money works!</p>
+<div *ngIf="data; else jamaila " class=" grid grid-cols-2 gap-4 justify-items-center container">
+  <div class="bar flex items-center justify-around " id="txt1" *ngFor="let user of data">
+    <h1>{{user?.name}}</h1>
+    <h1>{{user?.email}}</h1>
+    <i class='bx bxs-right-arrow-circle'></i>
+  </div>
+</div>
+
+<ng-template #jamaila >
+  <h1 class="text-3xl text-center">No Data Found</h1>
+</ng-template>

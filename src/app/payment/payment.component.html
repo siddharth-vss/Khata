@@ -1,0 +1,36 @@
+<div *ngIf="data; else jamaila " class="  container">
+  <div id="txt" class=" h-[500px] container ">
+
+    <div class=" flex my-[20px] items-center justify-around ">
+      <h1 class="text-[20px]">{{"#" + data[0]._id}}</h1>
+    </div>
+
+    <div class=" flex my-[20px] items-center justify-around ">
+      <h1 class="text-[20px]  ">{{data[0].sender == auth ? 'To' : 'From '}}</h1>
+      <h1 class="text-[20px]  ">{{ user(data[0].users[ data[0].sender == auth ? 1: 0 ])}}</h1>
+    </div>
+    <div class=" flex my-[20px] items-center justify-around ">
+      <h1 class="text-[20px]  ">{{data[0].sender != auth ? 'To' : 'From '}}</h1>
+      <h1 class="text-[20px]  ">{{ user(data[0].users[ data[0].sender != auth ? 1: 0 ])}}</h1>
+    </div>
+
+    <div class=" flex my-[20px] items-center justify-around ">
+      <h1 class="text-[20px] ">{{data[0].amount | currency:'INR' }} &nbsp; Recived By</h1>
+      <h1 class="text-[20px]  ">{{ user(data[0].users[ data[0].sender == auth ? 1: 0 ])}}</h1>
+    </div>
+    <div class=" flex my-[20px] items-center justify-around ">
+      <h1 class="text-[20px]  ">Time</h1>
+      <!-- <h1 class="text-[20px]  ">{{data[0].createdAt.slice(11,16)}}</h1> -->
+      <h1 class="text-[20px] ">{{reverse(data[0].createdAt.slice(0,10))}}</h1>
+    </div>
+
+  </div>
+</div>
+
+<div id="txt" style="height: 60px !important;" class=" mt-[20px] flex  justify-around btn h-[500px]  ">
+  <a routerLink="/payments" class=" flex items-center justify-around bar btn">Back <i class='bx bxs-right-arrow-circle'></i> </a>
+</div>
+
+<ng-template #jamaila>
+  <h1 class="text-3xl text-center">No Data Found</h1>
+</ng-template>

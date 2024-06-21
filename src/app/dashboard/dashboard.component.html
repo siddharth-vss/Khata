@@ -1,1 +1,7 @@
 <p>dashboard works!</p>
+<div *ngFor="let user of data" >
+  <button (click)="hello()" >{{user?._id}}</button>
+  <h1>{{user?.name}}</h1>
+  <h1>{{user?.email}}</h1>
+  <h1>{{user?.phone}}</h1><br>
+</div>

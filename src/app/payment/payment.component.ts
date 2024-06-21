@@ -1,46 +1,43 @@
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { UserService } from '../services/user.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { EntryService } from '../services/entry.service';
+import { UserService } from '../services/user.service';
+import { PaymentService } from '../services/payment.service';
 
 @Component({
-  selector: 'app-entries',
+  selector: 'app-payment',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink,CommonModule],
-  templateUrl: './entries.component.html',
-  styleUrl: './entries.component.css',
+  imports: [NgFor, CommonModule,NgIf, NgClass,RouterLink],
+  templateUrl: './payment.component.html',
+  styleUrl: './payment.component.css'
 })
-export class EntriesComponent {
+export class PaymentComponent {
   data: any;
-  id: string;
+  id : string;
   users: any;
-  auth = '666822e90f999b57b007cd4d';
+  auth = "666822e90f999b57b007cd4d" ;
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService,
-    // private paymetService: PaymentService,
-    private entryService: EntryService
+    public userService: UserService,
+    private paymentService: PaymentService
   ) {
     this.userService.user().subscribe((data: any) => {
       this.users = data;
     });
 
-    this.id = this.route.snapshot.paramMap.get('id') || '';
-    this.entryService.getall().subscribe((data: any) => {
+    this.id = this.route.snapshot.paramMap.get('id') || "" ;
+    this.paymentService.getpayment(this.id).subscribe((data: any) => {
+      console.log(data);
       this.data = data;
-      console.log(this.data);
     });
+
+
   }
-  user(id: string) {
+
+  user(id : string){
     const test = this.users.filter((e: any) => id == e._id);
-    console.log(test[0].name, 'user');
+    console.log(test[0].name,"user")
     return test[0].name;
-  }
-  hello(id: string[]) {
-    const data = id.filter((e) => {
-      return e != '666822e90f999b57b007cd4d';
-    });
   }
   reverse( param : any ){
     var splitString = param.split("-"); // var splitString = "hello".split("");
@@ -58,3 +55,17 @@ export class EntriesComponent {
     return joinArray; // "olleh"
   }
 }
+/*
+{
+    "users": [
+        "666822e90f999b57b007cd4d",
+        "6668404845b64d5f38067e12"
+    ],
+    "sender": "666822e90f999b57b007cd4d",
+    "amount": 5000,
+    "nonUser": "false",
+    "createdAt": "2024-06-17T06:24:47.580Z",
+    "updatedAt": "2024-06-17T06:24:47.580Z",
+    "__v": 0
+}
+*/
