@@ -1,16 +1,16 @@
 <div>
-  <form class=" grid grid-cols-1 gap-4 justify-items-center container">
+  <form #createEntery="ngForm"  class=" grid grid-cols-1 gap-4 justify-items-center container">
 
     <div id="txt" style="height: 60px !important;" class=" h-[60px] flex items-center justify-around ">
-      <input style="height: 60px !important; padding-left: 15%; " class="flex items-center justify-center " placeholder="Title"
+      <input ngModel name="title" style="height: 60px !important; padding-left: 15%; " class="flex items-center justify-center " placeholder="Title"
         type="text" />
     </div>
     <div id="txt" class=" h-[500px] flex items-center justify-around ">
-      <textarea class=" flex items-center justify-around " placeholder="NOTES" type="text">
+      <textarea ngModel  name="note" class=" flex items-center justify-around " placeholder="NOTES" type="text">
       </textarea>
     </div>
     <div id="txt" style="height: 60px !important;" class=" h-[500px] flex items-center justify-around btn ">
-      <button class="bar btn">Create</button>
+      <button (click)="submit(createEntery.value)"  class="bar btn">Create</button>
     </div>
   </form>
 </div>

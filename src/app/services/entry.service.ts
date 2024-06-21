@@ -20,6 +20,10 @@ export class EntryService {
     return this.entry.get(`${this.url}/entry`,this.config);
   }
   getEntry(id : string){
-    return this.entry.get(`${this.url}/${id}`,this.config);
+    return this.entry.get(`${this.url}/entry/${id}`,this.config);
+  }
+  saveEntry(data : any){
+    console.log(data);
+    return this.entry.post(`${this.url}/entry`,data,this.config);
   }
 }

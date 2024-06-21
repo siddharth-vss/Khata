@@ -1,28 +1,20 @@
 <div *ngIf="data; else jamaila " class="  container">
   <div id="txt" class=" h-[500px] container ">
-
     <div class=" flex items-center justify-around ">
       <h1></h1>
-      <h1 class="text-[30px]">{{'title'}}</h1>
-      <h1 class="text-[10px]">{{'date'}}</h1>
+      <h1 class="text-[30px] ml-[70px]">{{data[0].title}}</h1>
+      <h1 class="text-[10px]">{{reverse(data[0].createdAt.slice(0,10))}}</h1>
     </div>
 
     <div class=" flex items-center justify-around ">
-      <h1 class="text-[30px] my-[20px] ">{{'note'}}</h1>
+      <h1 class="text-[30px] my-[40px] ">{{data[0].note}}</h1>
     </div>
 
-    <div class=" flex items-center justify-around ">
-      <h1 class="text-[30px] ">{{'amount'}}</h1>
-    </div>
 
-    <div class=" flex items-center justify-around ">
-      <h1 class="text-[30px]">{{'sender'}}</h1>
-    </div>
-
-    <div class=" flex items-center justify-around ">
-      <h1 class="text-[30px]">{{'receiver'}}</h1>
-    </div>
   </div>
+</div>
+<div id="txt" style="height: 60px !important;" class=" h-[500px] my-[20px] flex container  justify-around ">
+  <a routerLink="/files" class="bar btn flex items-center justify-center " >Download</a>
 </div>
 
 <ng-template #jamaila>
