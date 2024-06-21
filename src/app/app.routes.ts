@@ -8,21 +8,23 @@ import { EntriesComponent } from './entries/entries.component';
 import { CreateEntryComponent } from './create-entry/create-entry.component';
 import { FilesComponent } from './files/files.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { PaymentComponent } from './payment/payment.component';
+import { EntryComponent } from './entry/entry.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
     path: '',
-    component : SidebarComponent ,
+    component: SidebarComponent,
     children: [
-
       { path: 'dashboard', component: DashboardComponent },
       {
         path: 'payments',
         children: [
           { path: '', component: ShowMoneyComponent },
           { path: 'create', component: SendMoneyComponent },
+          { path: ':id', component: PaymentComponent },
         ],
       },
       {
@@ -30,11 +32,17 @@ export const routes: Routes = [
         children: [
           { path: '', component: EntriesComponent },
           { path: 'create', component: CreateEntryComponent },
+          { path: ':id', component: EntryComponent },
         ],
       },
-      { path: 'files', component: FilesComponent },
-      {path : '' , redirectTo : '/login' , pathMatch: 'full' }
+      { path: 'files',
+        children: [
+          { path: '', component: FilesComponent },
+          { path: ':id', component: FilesComponent }
+        ],
+      },
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
     ],
   },
-  {path : '**' , redirectTo  : '/login'}
+  { path: '**', redirectTo: '/login' },
 ];
